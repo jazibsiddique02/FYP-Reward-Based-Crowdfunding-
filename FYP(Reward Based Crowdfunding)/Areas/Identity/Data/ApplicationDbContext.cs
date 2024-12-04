@@ -27,6 +27,6 @@ public class ApplicationUserEntityConfiguration : IEntityTypeConfiguration<Appli
 {
     public void Configure(EntityTypeBuilder<ApplicationUser> builder)
     {
-        builder.Property(x => x.UserName).HasMaxLength(40);
+        builder.Property(x => x.Name).HasMaxLength(40);
     }
 }
