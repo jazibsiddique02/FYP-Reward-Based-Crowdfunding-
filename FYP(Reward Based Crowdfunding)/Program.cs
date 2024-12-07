@@ -14,7 +14,7 @@ var connectionString = builder.Configuration.GetConnectionString("ApplicationDbC
 
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 
-builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false).AddEntityFrameworkStores<ApplicationDbContext>();
+builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount=false).AddEntityFrameworkStores<ApplicationDbContext>();
 
 
 
@@ -33,43 +33,6 @@ builder.Services.AddAuthentication().AddGoogle(options =>
 {
     options.ClientId = clientId;
     options.ClientSecret = clientSecret;
-
-
-    //options.Events.OnCreatingTicket = async context =>
-    //{
-    //    // Retrieve the user details from Google
-    //    var user = context.Principal;
-    //    var name = user?.FindFirstValue(ClaimTypes.Name);
-    //    var email = user?.FindFirstValue(ClaimTypes.Email);
-
-    //    // If the name is missing, you can set it to the email or another value
-    //    if (string.IsNullOrEmpty(name))
-    //    {
-    //        name = email; // Use email as a fallback if 'Name' is empty
-    //    }
-
-    //    // Ensure the 'Name' claim is added to the user's claims
-    //    var claimsIdentity = (ClaimsIdentity)context.Principal.Identity;
-    //    claimsIdentity.AddClaim(new Claim("Name", name));
-
-    //    // This step ensures that the 'Name' field is set when the user is created
-    //    var userManager = context.HttpContext.RequestServices.GetRequiredService<UserManager<ApplicationUser>>();
-    //    var existingUser = await userManager.FindByEmailAsync(email);
-
-    //    if (existingUser != null)
-    //    {
-    //        // Update the existing user
-    //        existingUser.Name = name; // Set the Name field
-    //        await userManager.UpdateAsync(existingUser);
-    //    }
-
-    //    await Task.CompletedTask;
-    //};
-
-
-
-
-
 
 }
 
