@@ -1,5 +1,30 @@
-﻿.sign-in-with-google{
-    margin-left:13%;
+﻿.sign-in-with-google {
+    margin-left: 13%;
+    background-color: #3b3b3b14;
+    border: none;
+    font-weight: 600;
 }
 
+.form-control {
+    background-color: #3b3b3b14;
+    border: none;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+    .form-control::placeholder {
+        color: rgb(64 66 67 / 47%);
+        
+    }
+
+
+.check-box {
+    background-color: #3b3b3b14;
+}
+
+
+a{
+    color:black;
+    
+}
 
