@@ -1,36 +1,30 @@
-﻿/* Center align the text */
+﻿.container{
+    max-width:1000px;
+}
+
+.border {
+    border-color: #d9d9d9 !important; /* Light gray border */
+}
+
+.shadow-sm {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Custom shadow */
+}
+
+
+
+/* Center align the text */
 h1, p {
     text-align: center;
 }
 
-/* Custom styles for buttons */
-/*.btn-danger {
-    background-color: #ff4b4b;
-    border-color: #ff4b4b;
-}
 
-    .btn-danger:hover {
-        background-color: #e63939;
-    }*/
-
-/*Styling for external login button*/
-.btn-light {
-    background-color: #fff;
-    border: 1px solid #d9d9d9;
-    color: #000;
-}
-
-    .btn-light img {
-        width: 20px;
-        height: 20px;
-    }
 
 
 .form-control {
     background-color: #3b3b3b14;
     border: none;
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding-top: 8px;
+    padding-bottom: 8px;
 }
 
     .form-control::placeholder {

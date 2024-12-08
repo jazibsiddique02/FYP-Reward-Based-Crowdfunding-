@@ -1,5 +1,9 @@
-﻿.sign-in-with-google {
-    margin-left: 13%;
+﻿.container{
+    max-width:1000px;
+}
+
+.sign-in-with-google {
+    
     background-color: #3b3b3b14;
     border: none;
     font-weight: 600;
@@ -8,8 +12,8 @@
 .form-control {
     background-color: #3b3b3b14;
     border: none;
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding-top: 8px;
+    padding-bottom: 8px;
 }
 
     .form-control::placeholder {
@@ -18,7 +22,7 @@
     }
 
 
-.check-box {
+.form-check-input {
     background-color: #3b3b3b14;
 }
 
@@ -27,4 +31,15 @@ a{
     color:black;
     
 }
+
+
+.border {
+    border-color: #e0e0e0 !important; /* Light gray border */
+}
+
+.shadow-sm {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+
 
