@@ -2,6 +2,10 @@
     max-width:1000px;
 }
 
+.card-container {
+    margin-top: 70px;
+}
+
 .border {
     border-color: #d9d9d9 !important; /* Light gray border */
 }
@@ -53,4 +57,13 @@ a{
     color:blue;
 }
 
+
+.login-btn {
+    background-color: #e53935;
+    color:white;
+}
+
+.login-btn:hover{
+    color:white;
+}
 
