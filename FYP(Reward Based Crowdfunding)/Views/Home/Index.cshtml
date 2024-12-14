@@ -1,8 +1,126 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<head>
+    <link href="~/css/Index.css" rel="stylesheet" />
+</head>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+
+<div class="carousel slide " id="carousel-demo" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-caption">
+            <h1 class="display-5 fw-bold">Connecting Innovators and <br />Supporters for a Better Tomorrow.</h1>
+            <button class="btn signup-btn m-3 px-4 py-2" style="border-radius:9px;">See All Campaigns</button>
+        </div>
+        <div class="carousel-item active" data-bs-interval="3000">
+            <img src="~/4.jpg" height="700px" alt="Alternate Text" class=" w-100" />
+            <div class="gradient-overlay"></div>
+            
+        </div>
+        <div class="carousel-item" data-bs-interval="3000">
+            <img src="~/8.jpg" height="700px" alt="Alternate Text" class="w-100"/>
+            <div class="gradient-overlay"></div>
+        </div>
+        <div class="carousel-item" data-bs-interval="3000">
+            <img src="~/12.jpg" height="700px" alt="Alternate Text" class="w-100" />
+            <div class="gradient-overlay"></div>
+        </div>
+        <div class="carousel-item" data-bs-interval="3000">
+            <img src="~/7.jpg" height="700px" alt="Alternate Text" class="w-100" />
+            <div class="gradient-overlay"></div>
+        </div>
+
+    </div>
+
+
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carousel-demo"
+    data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+
+    <button class="carousel-control-next" type="button" data-bs-target="#carousel-demo"
+            data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+
+    <div class="carousel-indicators">
+
+        <button type="button" class="active" data-bs-target="#carousel-demo" data-bs-slide-to="0">
+            <img src="~/4.jpg"/>
+        </button>
+        <button type="button" data-bs-target="#carousel-demo" data-bs-slide-to="1">
+            <img src="~/8.jpg"/>
+        </button>
+        <button type="button" data-bs-target="#carousel-demo" data-bs-slide-to="2">
+            <img src="~/12.jpg" />
+        </button>
+        <button type="button" data-bs-target="#carousel-demo" data-bs-slide-to="3">
+            <img src="~/7.jpg" />
+        </button>
+
+    </div>
+
+
+
+
+
+
+
+
+        
+    
+
+
+
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>Cards</div>
+<div>Blogs</div>
+
+
+
+
+
+<div class="newsletter text-center">
+    <h2 class="mb-3">Sign Up For Our Newsletter</h2>
+    <p class="mb-4 text-muted newsletter-font">Exclusively weekly updates with new products, and special offers</p>
+    <div class="d-flex justify-content-center">
+        <div class="input-group" style="max-width: 500px;">
+            <span class="border-white p-2 bg-white">
+                <i class="fas fa-envelope text-muted"></i>
+            </span>
+            <input type="email" class="form form-control border-white" placeholder="Enter your email address" aria-label="Email Address">
+            <button class="btn signup-btn bor px-5 ms-3" type="button">Sign up</button>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+

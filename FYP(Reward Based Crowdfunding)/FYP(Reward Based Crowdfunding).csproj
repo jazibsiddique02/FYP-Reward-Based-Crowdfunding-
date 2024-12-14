@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\css\Index.css" />
     <_ContentIncludedByDefault Remove="wwwroot\css\Layout.css" />
   </ItemGroup>
 
