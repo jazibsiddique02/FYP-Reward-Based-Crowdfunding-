@@ -52,6 +52,181 @@
 
 
 
+
+
+
+
+
+/*Campaign Cards*/
+
+/* Custom styles */
+.campaign-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 100%;
+}
+
+    .campaign-card img {
+        width: 100%;
+        border-radius: 8px;
+        height: 360px;
+        object-fit: cover;
+    }
+
+    .campaign-card h5 {
+        font-size: 16px;
+        margin-top: 10px;
+        font-weight: 600;
+    }
+
+    .campaign-card p {
+        margin: 5px 0;
+        font-size: 14px;
+    }
+
+.progress {
+    height: 4px;
+}
+
+
+.progress-bar {
+    background-color: #28a745;
+}
+
+.btn-red-outline {
+    border: 1px solid red;
+    color: red;
+    font-weight: 600;
+}
+
+.btn-red {
+    background-color: red;
+    color: white;
+    font-weight: 600;
+}
+
+.card-size {
+    width: 403px;
+    height: 630px;
+}
+
+.funded-percentage-font {
+    font-size: 11px;
+}
+
+.see-all-campaigns-btn {
+    border-radius: 9px;
+}
+
+    .see-all-campaigns-btn:hover {
+        color: red;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Blogs Section*/
+
+
+.blogs-body {
+    background-color: #013328; /* Dark Green Background */
+    color: white; /* Text Color */
+}
+
+.blog-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.blog-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.blog-card p {
+    margin: 15px 0;
+}
+
+.btn-explore {
+    color: white;
+    border: 2px solid #ff4d4d;
+    border-radius: 5px;
+    padding: 7px 20px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-explore:hover {
+        background-color: #ff4d4d;
+        color: white;
+    }
+
+.explore-blog-btn {
+    text-align: center;
+    margin-top: 30px;
+}
+
+    .explore-blog-btn .btn {
+        background-color: #ff4d4d;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+    }
+
+        .explore-blog-btn .btn:hover {
+            background-color: #e63946;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*Newsletter Section*/
 .newsletter {
     background-color: #f5f5f5;
