@@ -7,6 +7,8 @@
 
 
 
+@* Carousel *@
+
 <div class="carousel slide " id="carousel-demo" data-bs-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-caption">
@@ -16,10 +18,10 @@
         <div class="carousel-item active" data-bs-interval="3000">
             <img src="~/4.jpg" height="700px" alt="Alternate Text" class=" w-100" />
             <div class="gradient-overlay"></div>
-            
+
         </div>
         <div class="carousel-item" data-bs-interval="3000">
-            <img src="~/8.jpg" height="700px" alt="Alternate Text" class="w-100"/>
+            <img src="~/8.jpg" height="700px" alt="Alternate Text" class="w-100" />
             <div class="gradient-overlay"></div>
         </div>
         <div class="carousel-item" data-bs-interval="3000">
@@ -36,7 +38,7 @@
 
 
     <button class="carousel-control-prev" type="button" data-bs-target="#carousel-demo"
-    data-bs-slide="prev">
+            data-bs-slide="prev">
         <span class="carousel-control-prev-icon"></span>
     </button>
 
@@ -48,10 +50,10 @@
     <div class="carousel-indicators">
 
         <button type="button" class="active" data-bs-target="#carousel-demo" data-bs-slide-to="0">
-            <img src="~/4.jpg"/>
+            <img src="~/4.jpg" />
         </button>
         <button type="button" data-bs-target="#carousel-demo" data-bs-slide-to="1">
-            <img src="~/8.jpg"/>
+            <img src="~/8.jpg" />
         </button>
         <button type="button" data-bs-target="#carousel-demo" data-bs-slide-to="2">
             <img src="~/12.jpg" />
@@ -61,17 +63,6 @@
         </button>
 
     </div>
-
-
-
-
-
-
-
-
-        
-    
-
 
 
 </div>
@@ -94,12 +85,97 @@
 
 
 
-<div>Cards</div>
+
+
+
+<div class="container my-5 py-5">
+    <!-- Heading -->
+    <h2 class="text-center mb-4">Explore Inspiring Campaign Or Start Your <br />Own Journey!</h2>
+
+    <!-- Campaign Cards -->
+    <div class="row gy-4 d-flex justify-content-center gap-4">
+        <!-- Card 1 -->
+        <div class="card-size">
+            <div class="campaign-card">
+                <img src="~/12.jpg" alt="Campaign Image">
+                <h5>Ultra CYBERFROG: Warts and all oversized Hardcover</h5>
+                <p>Starting At</p>
+                <h4>$300</h4>
+                <div class="progress mt-2 mb-2">
+                    <div class="progress-bar" role="progressbar" style="width: 62%;" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <div class="funded-percentage-font">62% funded</div>
+                <p>$52,670 raised</p>
+                <button class="btn btn-outline-success w-100">View Campaign</button>
+            </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="card-size">
+            <div class="campaign-card">
+                <img src="~/12.jpg" alt="Alternate Text" />
+                <h5>Ultra CYBERFROG: Warts and all oversized Hardcover</h5>
+                <p>Starting At</p>
+                <h4>$300</h4>
+                <div class="progress mt-2 mb-2">
+                    <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <div class="funded-percentage-font">98% funded</div>
+                <p>$94,377 raised</p>
+                <button class="btn btn-outline-success w-100">View Campaign</button>
+            </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="card-size">
+            <div class="campaign-card">
+                <img src="~/12.jpg" alt="Alternate Text" />
+                <h5>Ultra CYBERFROG: Warts and all oversized Hardcover</h5>
+                <p>Starting At</p>
+                <h4>$300</h4>
+                <div class="progress mt-2 mb-2">
+                    <div class="progress-bar" role="progressbar" style="width: 48%;" aria-valuenow="48" aria-valuemin="0" aria-valuemax="100"></div>
+                    
+                </div>
+                <div class="funded-percentage-font">48% funded</div>
+                <p>$52,762 raised</p>
+                <button class="btn btn-outline-success w-100">View Campaign</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="d-flex justify-content-between mt-4">
+        <button class="btn btn-red-outline me-2 see-all-campaigns-btn">See All Campaigns</button>
+        <button class="btn signup-btn" style="border-radius:9px;">Start A Campaign</button>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div>Blogs</div>
 
 
 
 
+
+
+
+
+@*NewsLetter SignUp*@
 
 <div class="newsletter text-center">
     <h2 class="mb-3">Sign Up For Our Newsletter</h2>
@@ -114,6 +190,13 @@
         </div>
     </div>
 </div>
+
+
+
+
+
+
+
 
 
 
