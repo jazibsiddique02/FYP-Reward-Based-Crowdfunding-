@@ -16,6 +16,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
 
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount=false).AddEntityFrameworkStores<ApplicationDbContext>();
 
+builder.Services.AddSession();
 
 
 
@@ -59,7 +60,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-
+app.UseSession();
 app.UseAuthentication();
 
 

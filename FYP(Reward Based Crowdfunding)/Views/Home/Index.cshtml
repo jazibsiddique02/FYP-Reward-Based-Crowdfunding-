@@ -13,7 +13,9 @@
     <div class="carousel-inner">
         <div class="carousel-caption">
             <h1 class="display-5 fw-bold">Connecting Innovators and <br />Supporters for a Better Tomorrow.</h1>
-            <button class="btn signup-btn m-3 px-4 py-2" style="border-radius:9px;">See All Campaigns</button>
+            <form asp-controller="Campaign" asp-action="GetAllCampaigns" method="get">
+            <button class="btn signup-btn m-3 px-4 py-2" style="border-radius:9px;" >See All Campaigns</button>
+            </form>
         </div>
         <div class="carousel-item active" data-bs-interval="3000">
             <img src="~/4.jpg" height="700px" alt="Alternate Text" class=" w-100" />

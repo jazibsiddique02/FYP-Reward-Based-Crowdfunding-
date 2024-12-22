@@ -1,0 +1,71 @@
+﻿@model FYP_Reward_Based_Crowdfunding_.Models.CampaignViewModel
+
+@{
+    ViewData["Title"] = "CreateCampaign";
+}
+
+<h1>CreateCampaign</h1>
+
+<h4>Campaigns</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateCampaign" asp-controller="Campaign" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="user_id" class="control-label"></label>
+                <input asp-for="user_id" class="form-control" />
+                <span asp-validation-for="user_id" class="text-danger"></span>
+                @* <select asp-for="user_id" class ="form-control" asp-items="ViewBag.user_id"></select> *@
+            </div>
+            <div class="form-group">
+                <label asp-for="title" class="control-label"></label>
+                <input asp-for="title" class="form-control" />
+                <span asp-validation-for="title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="description" class="control-label"></label>
+                <input asp-for="description" class="form-control" />
+                <span asp-validation-for="description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="target_amount" class="control-label"></label>
+                <input asp-for="target_amount" class="form-control" />
+                <span asp-validation-for="target_amount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="raised_amount" class="control-label"></label>
+                <input asp-for="raised_amount" class="form-control" />
+                <span asp-validation-for="raised_amount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="category" class="control-label"></label>
+                <input asp-for="category" class="form-control" />
+                <span asp-validation-for="category" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="deadline" class="control-label"></label>
+                <input type="date" asp-for="deadline" class="form-control" />
+                <span asp-validation-for="deadline" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="created_at" class="control-label"></label>
+                <input type="date" asp-for="created_at" class="form-control" />
+                <span asp-validation-for="created_at" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="picture" class="control-label"></label>
+                <input asp-for="picture" class="form-control" />
+                <span asp-validation-for="picture" class="text-danger"></span>
+            </div>
+            <div class="form-group">             
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
