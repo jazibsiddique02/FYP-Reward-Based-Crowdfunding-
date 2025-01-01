@@ -1,0 +1,118 @@
+﻿/*Campaign Cards*/
+
+/* Custom styles */
+.campaign-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 100%;
+}
+
+    .campaign-card img {
+        width: 320px;
+        border-radius: 8px;
+        height: 260px;
+        object-fit: cover;
+    }
+
+    .campaign-card h5 {
+        font-size: 16px;
+        margin-top: 10px;
+        font-weight: 600;
+    }
+
+    .campaign-card p {
+        margin: 5px 0;
+        font-size: 14px;
+    }
+
+.progress {
+    height: 4px;
+}
+
+
+.progress-bar {
+    background-color: #28a745;
+}
+
+.btn-red-outline {
+    border: 1px solid red;
+    color: red;
+    font-weight: 600;
+}
+
+.btn-red {
+    background-color: red;
+    color: white;
+    font-weight: 600;
+}
+
+.card-size {
+    width: 370px;
+    height: 500px;
+}
+
+.funded-percentage-font {
+    font-size: 11px;
+}
+
+.see-all-campaigns-btn {
+    border-radius: 9px;
+}
+
+    .see-all-campaigns-btn:hover {
+        color: red;
+    }
+
+.searchbar {
+    background-color: #003731;
+    padding-top:20px;
+    padding-bottom:0px;
+}
+
+
+.input-group{
+    left:28px;
+}
+
+
+.search-btn {
+    background-color: #E53935;
+    color: white;
+    position: relative;
+    right: 66px;
+    width: 68px;
+}
+
+.search-form {
+    border-radius: 9px;
+}
+
+.search-navbar {
+    padding-top: 25px;
+    padding-bottom:15px;
+    position: relative;
+    right:60px;
+    
+}
+
+.navbar-link{
+    text-decoration:none;
+    color:white;
+    padding:20px;
+}
+
+    .navbar-link:hover {
+        background-color: #E53935;
+        padding: 20px;
+        color: white;
+        border-radius: 9px;
+        transition: background-color 0.5s ease;
+    }
+
+.search-bar-input:active{
+    position:relative;
+    z-index:-1;
+}

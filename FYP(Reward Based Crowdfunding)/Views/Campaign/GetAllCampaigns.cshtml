@@ -1,48 +1,64 @@
 ﻿@model IEnumerable<FYP_Reward_Based_Crowdfunding_.Models.Campaigns>
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Campaigns</title>
+    <link href="~/css/GetAllCampaigns.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="container mt-5">
-        <h1 class="mb-4">All Campaigns</h1>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Title</th>
-                    <th>Description</th>
-                    <th>Target Amount</th>
-                    <th>Raised Amount</th>
-                    <th>Category</th>
-                    <th>Deadline</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var campaign in Model)
-                {
-                    <tr>
-                        <td>@campaign.campaign_id</td>
-                        <td>@campaign.title</td>
-                        <td>@campaign.description</td>
-                        <td>PKR @campaign.target_amount</td>
-                        <td>PKR @campaign.raised_amount</td>
-                        <td>@campaign.category</td>
-                        <td>@campaign.deadline.ToString("yyyy-MM-dd")</td>
-                        <td>
-                            <a href="/Campaign/DisplayCampaign?id=@campaign.campaign_id" class="btn btn-info btn-sm">View</a>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
+    <div class="searchbar">
+        <form class="d-flex container" role="search">
+            <div class="input-group">
+                <input type="text" class="form-control search-bar-input rounded-pill" placeholder="Search" aria-label="Search">
+                <button class="btn rounded-pill search-btn" type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </form>
+
+        <nav class="text-white search-navbar">
+            <ul class="d-flex fw-bold justify-content-center gap-5 list-unstyled">
+                <li><a asp-controller="Campaign" asp-action="GetAllCampaigns" class="navbar-link ">All Campaigns</a></li>
+                <li><a href="#" class="navbar-link ">Your Campaigns</a></li>
+            </ul>
+        </nav>
     </div>
+
+    <div class="container d-flex flex-wrap gap-5 p-5 my-5">
+        @foreach (var campaign in Model)
+        {
+            var percentage = (double)(((float)campaign.raised_amount / (float)campaign.target_amount) * 100);
+            percentage = Math.Round(percentage, 1);
+
+            <div class="card-size">
+                <div class="campaign-card">
+
+                    <img src="~/images/@campaign.image_url" alt="Alternate Text" />
+                    <h5>@campaign.title</h5>
+                    <p>Starting At</p>
+                    <h4>$300</h4>
+                    <div class="progress mt-2 mb-2">
+                        <div class="progress-bar" role="progressbar" style="width: @percentage%;" aria-valuenow="@percentage" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <div class="funded-percentage-font">@percentage% funded</div>
+                    <p>@campaign.raised_amount raised</p>
+                    <button class="btn btn-outline-success w-100">View Campaign</button>
+                </div>
+            </div>
+        }
+    </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
 </body>
 </html>
 

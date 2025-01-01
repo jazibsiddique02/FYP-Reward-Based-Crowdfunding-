@@ -45,5 +45,8 @@ namespace FYP_Reward_Based_Crowdfunding_.Models
 
         [Required]
         public IFormFile picture { get; set; }
+
+        [Required]
+        public int contribution_amount { get; set; }
     }
 }

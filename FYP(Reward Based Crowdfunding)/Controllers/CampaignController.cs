@@ -27,7 +27,6 @@ namespace FYP_Reward_Based_Crowdfunding_.Controllers
 
 
 
-        [Authorize]
         public async Task<IActionResult> GetAllCampaigns()
         {
 
@@ -39,18 +38,19 @@ namespace FYP_Reward_Based_Crowdfunding_.Controllers
         [Authorize]
         public async Task<IActionResult> CreateCampaign()
         {
+            var userId = userManager.GetUserId(User); // Get the logged-in user's ID
+            ViewBag.UserId = userId;
             return View();
         }
 
 
 
-
+        
         [HttpPost]
         public IActionResult CreateCampaign(CampaignViewModel campaign)
         {
             if (!ModelState.IsValid)
             {
-
 
                 string filename = "";
 
@@ -68,7 +68,7 @@ namespace FYP_Reward_Based_Crowdfunding_.Controllers
 
                     Campaigns newCampaign = new Campaigns
                     {
-                        user_id = campaign.user_id,
+                        user_id = userManager.GetUserId(User),
                         title = campaign.title,
                         description = campaign.description,
                         target_amount = campaign.target_amount,
@@ -76,7 +76,8 @@ namespace FYP_Reward_Based_Crowdfunding_.Controllers
                         category = campaign.category,
                         deadline = campaign.deadline,
                         created_at = campaign.created_at,
-                        image_url = filename
+                        image_url = filename,
+                        contribution_amount = campaign.contribution_amount
                     };
                     context.Campaigns.Add(newCampaign);
                     context.SaveChanges();
