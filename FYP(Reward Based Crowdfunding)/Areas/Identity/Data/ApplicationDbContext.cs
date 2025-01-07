@@ -17,6 +17,8 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
 
     public DbSet<Campaigns> Campaigns { get; set; }
 
+    public DbSet<Rewards> Rewards { get; set; }
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
@@ -31,6 +33,11 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
                 .WithMany() // No collection on ApplicationUser
                 .HasForeignKey(c => c.user_id)
                 .IsRequired();
+
+        builder.Entity<Rewards>().HasOne(r => r.Campaign)
+            .WithMany()
+            .HasForeignKey(r => r.campaign_id)
+            .IsRequired();
     }
 }
 

@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
+using Microsoft.AspNetCore.Http;
 
 
 
@@ -44,8 +46,32 @@ namespace FYP_Reward_Based_Crowdfunding_.Controllers
         }
 
 
+        public async Task<IActionResult> CreateReward()
+        {
+            // Retrieve the serialized campaign data from session
+            var campaignData = HttpContext.Session.GetString("newCampaign");
 
-        
+            if (!string.IsNullOrEmpty(campaignData))
+            {
+                // Deserialize the data back to a Campaigns object
+                var newCampaign = JsonConvert.DeserializeObject<Campaigns>(campaignData);
+                ViewBag.CampaignId = newCampaign.campaign_id;
+
+                // Pass the object to the view
+                return View();
+            }
+
+            //// If no campaign data in session, return an error or redirect to another page
+            //return BadRequest("Campaign data is not available.");
+
+            // Find the campaign where the title matches
+
+            return View();
+        }
+
+
+
+
         [HttpPost]
         public IActionResult CreateCampaign(CampaignViewModel campaign)
         {
@@ -79,10 +105,28 @@ namespace FYP_Reward_Based_Crowdfunding_.Controllers
                         image_url = filename,
                         contribution_amount = campaign.contribution_amount
                     };
+
                     context.Campaigns.Add(newCampaign);
                     context.SaveChanges();
 
-                    return RedirectToAction("GetAllCampaigns");
+
+
+
+
+                    // Find the campaign where the title matches
+                    var campaignData = context.Campaigns.FirstOrDefault(c => c.title == newCampaign.title);
+
+                    
+
+
+                    // Store the campaign object in session (serialized as a JSON string)
+                    HttpContext.Session.SetString("newCampaign", JsonConvert.SerializeObject(campaignData));
+
+                    
+                    return RedirectToAction("CreateReward");
+
+
+
                 }
             }
             return View();

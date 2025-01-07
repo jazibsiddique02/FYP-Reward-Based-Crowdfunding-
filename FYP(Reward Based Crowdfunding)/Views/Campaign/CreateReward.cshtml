@@ -1,0 +1,58 @@
+﻿@model FYP_Reward_Based_Crowdfunding_.Models.Rewards
+
+
+@{
+    ViewData["Title"] = "CreateReward";
+}
+
+@{
+        var campaignId = ViewBag.CampaignId;
+}
+
+
+<body>
+
+    <h1>CreateReward</h1>
+
+   
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="CreateReward" asp-controller="Campaign" method="post" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+               
+                <div class="form-group">
+                    <label asp-for="title" class="control-label"></label>
+                    <input asp-for="title" class="form-control" />
+                    <span asp-validation-for="title" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="description" class="control-label"></label>
+                    <input asp-for="description" class="form-control" />
+                    <span asp-validation-for="description" class="text-danger"></span>
+                </div>                           
+                
+
+                <div class="form-group">
+                    <label asp-for="reward_contribution_amount" class="control-label"></label>
+                    <input asp-for="reward_contribution_amount" class="form-control" />
+                    <span asp-validation-for="reward_contribution_amount" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="campaign_id" class="control-label"></label>
+                    <input readonly asp-for="campaign_id" class="form-control" value="@campaignId" />
+                    <span asp-validation-for="campaign_id" class="text-danger"></span>
+                </div>
+
+
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+   
+</body>
