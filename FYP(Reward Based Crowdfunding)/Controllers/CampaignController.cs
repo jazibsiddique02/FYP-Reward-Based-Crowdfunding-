@@ -46,29 +46,6 @@ namespace FYP_Reward_Based_Crowdfunding_.Controllers
         }
 
 
-        public async Task<IActionResult> CreateReward()
-        {
-            // Retrieve the serialized campaign data from session
-            var campaignData = HttpContext.Session.GetString("newCampaign");
-
-            if (!string.IsNullOrEmpty(campaignData))
-            {
-                // Deserialize the data back to a Campaigns object
-                var newCampaign = JsonConvert.DeserializeObject<Campaigns>(campaignData);
-                ViewBag.CampaignId = newCampaign.campaign_id;
-
-                // Pass the object to the view
-                return View();
-            }
-
-            //// If no campaign data in session, return an error or redirect to another page
-            //return BadRequest("Campaign data is not available.");
-
-            // Find the campaign where the title matches
-
-            return View();
-        }
-
 
 
 
@@ -133,5 +110,71 @@ namespace FYP_Reward_Based_Crowdfunding_.Controllers
         }
 
 
+
+
+        public async Task<IActionResult> CreateReward()
+        {
+            // Retrieve the serialized campaign data from session
+            var campaignData = HttpContext.Session.GetString("newCampaign");
+
+            if (!string.IsNullOrEmpty(campaignData))
+            {
+                // Deserialize the data back to a Campaigns object
+                var newCampaign =JsonConvert.DeserializeObject<Campaigns>(campaignData);
+                ViewBag.CampaignId = newCampaign.campaign_id;
+
+                // Pass the object to the view
+                return View();
+            }
+
+            //// If no campaign data in session, return an error or redirect to another page
+            //return BadRequest("Campaign data is not available.");
+
+            // Find the campaign where the title matches
+
+            return View();
+        }
+
+
+
+
+
+        public IActionResult FinalizeCampaign()
+        {
+            return RedirectToAction("GetAllCampaigns");
+        }
+
+        [HttpPost]
+        public IActionResult CreateReward(Rewards reward)
+        {
+            if (!ModelState.IsValid)
+            {
+                Rewards newReward = new Rewards
+                {
+                    title = reward.title,
+                    description = reward.description,
+                    reward_contribution_amount = reward.reward_contribution_amount,
+                    campaign_id = reward.campaign_id
+                };
+
+                context.Rewards.Add(newReward);
+                context.SaveChanges();
+
+
+                TempData["Message"] = "Reward created successfully!";
+
+                return RedirectToAction("CreateReward");
+            }
+            return View();
+        }
+
     }
 }
+
+
+
+
+
+
+
+

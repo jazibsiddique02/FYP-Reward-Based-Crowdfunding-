@@ -1,58 +1,104 @@
 ﻿@model FYP_Reward_Based_Crowdfunding_.Models.Rewards
 
-
 @{
     ViewData["Title"] = "CreateReward";
+    var campaignId = ViewBag.CampaignId;
 }
-
-@{
-        var campaignId = ViewBag.CampaignId;
-}
-
 
 <body>
+    <h1>Create Reward</h1>
 
-    <h1>CreateReward</h1>
+    <!-- Display Success Message -->
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["Message"]
+        </div>
+    }
 
-   
     <div class="row">
         <div class="col-md-4">
-            <form asp-action="CreateReward" asp-controller="Campaign" method="post" enctype="multipart/form-data">
+            <form id="rewardForm" asp-action="CreateReward" asp-controller="Campaign" method="post" enctype="multipart/form-data">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-               
+
+                <!-- Title -->
                 <div class="form-group">
                     <label asp-for="title" class="control-label"></label>
-                    <input asp-for="title" class="form-control" />
-                    <span asp-validation-for="title" class="text-danger"></span>
+                    <input asp-for="title" class="form-control" id="title" />
+                    <span id="titleError" class="text-danger"></span>
                 </div>
+
+                <!-- Description -->
                 <div class="form-group">
                     <label asp-for="description" class="control-label"></label>
-                    <input asp-for="description" class="form-control" />
-                    <span asp-validation-for="description" class="text-danger"></span>
-                </div>                           
-                
-
-                <div class="form-group">
-                    <label asp-for="reward_contribution_amount" class="control-label"></label>
-                    <input asp-for="reward_contribution_amount" class="form-control" />
-                    <span asp-validation-for="reward_contribution_amount" class="text-danger"></span>
+                    <input asp-for="description" class="form-control" id="description" />
+                    <span id="descriptionError" class="text-danger"></span>
                 </div>
 
+                <!-- Contribution Amount -->
+                <div class="form-group">
+                    <label asp-for="reward_contribution_amount" class="control-label"></label>
+                    <input asp-for="reward_contribution_amount" class="form-control" id="reward_contribution_amount" />
+                    <span id="amountError" class="text-danger"></span>
+                </div>
+
+                <!-- Campaign ID (Readonly) -->
                 <div class="form-group">
                     <label asp-for="campaign_id" class="control-label"></label>
                     <input readonly asp-for="campaign_id" class="form-control" value="@campaignId" />
                     <span asp-validation-for="campaign_id" class="text-danger"></span>
                 </div>
 
-
                 <div class="form-group">
-                    <input type="submit" value="Create" class="btn btn-primary" />
+                    <input type="submit" value="Create Reward" class="btn btn-primary" />
+                    <a asp-action="FinalizeCampaign" asp-controller="Campaign" class="btn btn-primary">Finalize Campaign</a>
                 </div>
             </form>
         </div>
     </div>
 
+    <!-- Manual Validation Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#rewardForm").submit(function (e) {
+                e.preventDefault(); // Prevent default form submission
 
+                // Clear previous error messages
+                $("#titleError, #descriptionError, #amountError").text("");
 
-   
+                let isValid = true;
+
+                // Get field values
+                const title = $("#title").val().trim();
+                const description = $("#description").val().trim();
+                const amount = $("#reward_contribution_amount").val().trim();
+
+                // Validate Title
+                if (title === "") {
+                    $("#titleError").text("Title is required.");
+                    isValid = false;
+                }
+
+                // Validate Description
+                if (description === "") {
+                    $("#descriptionError").text("Description is required.");
+                    isValid = false;
+                }
+
+                // Validate Contribution Amount
+                if (amount === "" || isNaN(amount) || parseInt(amount) <= 0) {
+                    $("#amountError").text("Contribution amount must be a positive number.");
+                    isValid = false;
+                }
+
+                // Skip Campaign ID validation (it’s readonly and pre-filled)
+
+                // Submit the form if valid
+                if (isValid) {
+                    this.submit(); // Submit the form to the server
+                }
+            });
+        });
+    </script>
 </body>
