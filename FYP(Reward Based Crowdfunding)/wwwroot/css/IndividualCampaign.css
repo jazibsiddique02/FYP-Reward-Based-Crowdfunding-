@@ -1,0 +1,91 @@
+﻿.container {
+    max-width: 80%;
+    margin: auto;
+    padding: 20px;
+/*    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+*/    border:none;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    
+}
+
+.img-fluid {
+    width: 80%;
+    height: 500px;
+    border-radius: 8px;
+}
+
+.funding-details {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+
+.progress {
+    height: 8px;
+}
+
+
+.progress-bar {
+    background-color: #28a745;
+}
+
+.backers-info {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.2rem;
+}
+
+.carousel-card {
+    border: 0.5px solid #c4c0c0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    cursor: pointer;
+    height: 280px;
+}
+
+    .carousel-card:hover {
+        background-color: #edebeb;
+    }
+
+.card-text {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.carousel-inner {
+    width: 80%;
+    margin: auto;
+}
+
+.modal-content {
+    max-height: 600px;
+}
+
+.modal-desc {
+    font-size: 12px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: gray;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.carousel-indicators button {
+    background-color: #0c4b33;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.heading-margin{
+    margin:40px 0px;
+}

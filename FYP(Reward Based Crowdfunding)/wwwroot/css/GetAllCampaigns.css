@@ -21,6 +21,9 @@
         font-size: 16px;
         margin-top: 10px;
         font-weight: 600;
+        white-space: nowrap; /* Prevent text from wrapping */
+        overflow: hidden; /* Hide overflow */
+        text-overflow: ellipsis; /* Show ellipsis for overflow */
     }
 
     .campaign-card p {
@@ -51,7 +54,7 @@
 
 .card-size {
     width: 370px;
-    height: 500px;
+    height: 520px;
 }
 
 .funded-percentage-font {

@@ -37,6 +37,36 @@ namespace FYP_Reward_Based_Crowdfunding_.Controllers
         }
 
 
+
+        public async Task<IActionResult> ViewCampaign(int id)
+        {
+            // Retrieve the campaign
+            var campaign = await context.Campaigns.FindAsync(id);
+            if (campaign == null)
+            {
+                return NotFound();
+            }
+
+            // Retrieve the rewards associated with the campaign
+            var rewards = await context.Rewards
+                .Where(r => r.campaign_id == id)
+                .ToListAsync();
+
+            // Create a new object to store both the campaign and its rewards
+            var campaignWithRewards = new CampaignWithRewardsViewModel
+            {
+                Campaign = campaign,
+                Rewards = rewards
+            };
+
+            // Pass the combined data to the view
+            return View("IndividualCampaign", campaignWithRewards);
+        }
+
+
+
+
+
         [Authorize]
         public async Task<IActionResult> CreateCampaign()
         {

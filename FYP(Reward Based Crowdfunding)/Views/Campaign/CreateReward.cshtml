@@ -31,7 +31,8 @@
                 <!-- Description -->
                 <div class="form-group">
                     <label asp-for="description" class="control-label"></label>
-                    <input asp-for="description" class="form-control" id="description" />
+                    @* <input asp-for="description" class="form-control" id="description" /> *@
+                    <textarea asp-for="description" class="form-control" rows="5"></textarea>
                     <span id="descriptionError" class="text-danger"></span>
                 </div>
 

@@ -1,0 +1,158 @@
+﻿@model FYP_Reward_Based_Crowdfunding_.Models.CampaignWithRewardsViewModel
+
+@{
+    ViewData["Title"] = "View Campaign";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/IndividualCampaign.css" />
+</head>
+
+<body>
+    @{
+        var percentage = (double)(((float)Model.Campaign.raised_amount / (float)Model.Campaign.target_amount) * 100);
+        percentage = Math.Round(percentage, 1);
+    }
+    <div class="container">
+        <div class="d-flex justify-content-center mt-5 mb-5">
+            <img src="~/images/@Model.Campaign.image_url" alt="@Model.Campaign.title" class="img-fluid" />
+        </div>
+        <h1 class="mb-5">@Model.Campaign.title</h1>
+
+
+        <div class="mb-5">
+            <div class="funding-details">
+                <p><strong>Raised Amount:</strong> $@Model.Campaign.raised_amount</p>
+                <p><strong>Target Amount:</strong> $@Model.Campaign.target_amount</p>
+            </div>
+            <div class="progress mt-2 mb-2">
+                <div class="progress-bar" role="progressbar" style="width: @percentage%;" aria-valuenow="@percentage" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+
+            <p class="text-center fw-bolder fs-3">@percentage% funded</p>
+        </div>
+
+
+        <h1 class="heading-margin">Description</h1>
+        <p>@Model.Campaign.description</p>
+
+
+
+
+
+        @*Contribution Section*@
+        <h1 class="heading-margin">Contribution</h1>
+        <div class="col-md-4 m-auto">
+            <div class="carousel-card text-center" data-bs-toggle="modal" data-bs-target="#descriptionModal-contribute">
+                <div class="card-body">
+                    <h5 class="card-title">Contribute</h5>
+                    <p class="card-text text-truncate" style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; white-space: normal;">
+                        This Contribution won't provide any rewards
+                    </p>
+                    <h3 class='text-center fw-bolder'>$@Model.Campaign.contribution_amount</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="descriptionModal-contribute" tabindex="-1" aria-labelledby="modalLabel-contribute" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalLabel-contribute">Contribute</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body modal-desc">
+                        Contribute Without Getting a Reward in Return
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center">
+                        <button class="btn btn-danger">Contribute $@Model.Campaign.contribution_amount</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <h1 class="heading-margin">Rewards</h1>
+        <!-- Bootstrap Carousel -->
+        <div id="rewardCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
+            <div class="carousel-inner">
+                @for (int i = 0; i < Model.Rewards.Count; i += 3) // Create slides with 3 cards each
+                {
+                    <div class="carousel-item @(i == 0 ? "active" : "")">
+                        <div class="row">
+                            @for (int j = i; j < i + 3 && j < Model.Rewards.Count; j++) // Display 3 cards per slide
+                            {
+                                var reward = Model.Rewards[j];
+                               
+                                
+                                <div class="col-md-4 m-auto">
+                                    <div class="carousel-card text-center" data-bs-toggle="modal" data-bs-target="#descriptionModal-@j">
+                                        <div class="card-body">
+                                            <h5 class="card-title">@reward.title</h5>
+                                            <p class="card-text text-truncate" style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; white-space: normal;">
+                                                @reward.description
+                                            </p>
+                                            <h3 class='text-center fw-bolder'>$@reward.reward_contribution_amount</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <!-- Carousel Controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#rewardCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#rewardCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+        <!-- Modals for full description -->
+        @for (int i = 0; i < Model.Rewards.Count; i++)
+        {
+            var reward = Model.Rewards[i];
+            <div class="modal fade" id="descriptionModal-@i" tabindex="-1" aria-labelledby="modalLabel-@i" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalLabel-@i">@reward.title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body modal-desc">
+                            @reward.description
+                        </div>
+                        <div class="modal-footer d-flex justify-content-center">
+                            <button class="btn btn-danger">Avail $@reward.reward_contribution_amount Reward</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+
+
+
+        <hr class="heading-margin"/>
+        <h1 class="heading-margin">Discussion</h1>
+
+
+    </div>
+
+</body>
+</html>
